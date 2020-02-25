@@ -7,11 +7,9 @@ Reworked by CR, 23 Sep 2011
 Reworked by Jon Gacnik, 19 Feb 2013
 
 Created: 2005.08.29 04:28PM
-Last Modified: 2014.11.15 by Scott Murray
+Last Modified: 2019.07.26 by Casey Reas to remove Foundation Site CSS "-f"
 
 */
-
-
 
 @font-face {
 	font-family: 'theSerifItalic';
@@ -54,7 +52,6 @@ Last Modified: 2014.11.15 by Scott Murray
 }
 
 
-
 /* ================ GLOBAL ================== */
 
 body {
@@ -70,7 +67,7 @@ body {
 	-webkit-text-size-adjust: none;
 	
 	font-size			: 100%; 
-    font-size           : 0.79em;
+    font-size           : 0.85em; /* 0.79em; */
 	font-weight			: normal;
 	line-height			: 1.5em;
 	color				: #252525;
@@ -79,6 +76,7 @@ body {
 img { border: 0px solid #000000; }
 
 a {
+	cursor: pointer;
 	text-decoration: none;
 	font-weight: normal;
 	color: #2c7bb5;
@@ -101,6 +99,7 @@ a.large-link:before {
 	background-image: linear-gradient(transparent, transparent), url(../img/raquo.svg);
 	content: '';
 }
+
 
 /* ================ COVER SLIDESHOW ================== */
 
@@ -127,7 +126,6 @@ a.large-link:before {
 }
 
 
-
 /* ================ LAYOUT ================== */
 
 #container {
@@ -135,7 +133,6 @@ a.large-link:before {
 	margin: 0 auto;
 	background-color: white;
 }
-
 
 
 /* ================ RIBBON ================== */
@@ -179,6 +176,8 @@ a.large-link:before {
 	border-right: 1px solid #1a1a1a;
 }
 
+
+
 #ribbon ul.right li {
 	float: right;
 	border-left: 1px solid #1a1a1a;
@@ -209,25 +208,51 @@ a.large-link:before {
 	font-weight: bold;
 }
 
+#ribbon-announce {
+    text-align: center;
+	width: 900px;
+	height: auto;
+	background-color: #d1f94e;
+	background: linear-gradient(to bottom, #1d517e, #d1f94e);
+	margin-bottom: 30px; /* added when placed below the header */
+}
+
+#ribbon-announce ul {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+#ribbon-announce ul.center {
+	float: center;
+}
+
+#ribbon-announce ul li {
+	display: inline-block;
+	margin: 0;
+	padding: 6px 10px 5px 10px;
+	list-style: none;
+}
+
+#ribbon-announce ul.center li {
+	float: center;
+}
+
+#ribbon-announce ul li a {
+    color: white;
+	font-weight: bold;
+}
+
 
 /* ================ HEADER ================== */
+
 #header {
 	width: 900px;
 	height: 106px;
-	margin-bottom: 30px;
+	margin-bottom: 30px; /* was 30px, but changed to 0 when ribbon placed below header */
 	overflow: hidden;
 	background: #0c2033 url(../img/processing-web.png) center center no-repeat;
 	background-position: bottom;
-	background-size: 900px 106px;	
-	position: relative;
-}
-
-#header-f {
-	width: 900px;
-	height: 106px;
-	margin-bottom: 30px;
-	overflow: hidden;
-	background: #0c2033 url(/images/processing-site.png) center center no-repeat;
 	background-size: 900px 106px;	
 	position: relative;
 }
@@ -243,26 +268,7 @@ a.large-link:before {
 	background-image: linear-gradient(transparent, transparent), url(../img/processing-logo.svg);
 }
 
-#header-f .processing-logo {
-	width: 370px;
-	height: 38px;
-	margin: 20px 0 0 30px;
-    /* -- NEW FOUNDATION LOGO GOES HERE -- */
-	background: transparent url(/images/processing-foundation-logo.svg) center center no-repeat;
-	background-image: -webkit-linear-gradient(transparent, transparent), url(/images/processing-foundation-logo.svg);
-	background-image: -moz-linear-gradient(transparent, transparent), url(/images/processing-foundation-logo.svg);
-	background-image: linear-gradient(transparent, transparent), url(/images/processing-foundation-logo.svg);
-}
-
 #header .processing-logo.no-cover:before {
-	position: relative;
-	top: 3px;
-	left: -18px;
-	font-size: 24px;
-	content: '\2039';
-}
-
-#header-f .processing-logo.no-cover:before {
 	position: relative;
 	top: 3px;
 	left: -18px;
@@ -284,32 +290,12 @@ a.large-link:before {
 	color: white;
 }
 
-#header-f a { 
-	font-family: 'theSerif', 'Enriqueta', georgia, times, sans-serif;
-	text-decoration: none;
-	border: none;
-	color: white;
-}
-
 #header h1 {
 		display: none;
 		float: left;
 }
 
-#header-f h1 {
-		display: none;
-		float: left;
-}
-
 #header form {
-	position: absolute;
-	top: 20px;
-	right: 5px;
-	width: 176px;
-	color: #959595;
-}
-
-#header-f form {
 	position: absolute;
 	top: 20px;
 	right: 5px;
@@ -328,24 +314,7 @@ a.large-link:before {
 	color: #959595;
 }
 
-#header-f form input {
-	float: left;
-	border: 1px solid #136796;
-	outline: none;
-	height: 18px;
-	background: #fff;
-	font-family: 'theSerif', 'Enriqueta', georgia, times, serif; 
-	font-size: 1em;
-	color: #959595;
-}
-
 #header form input[type="text"]{
-	padding-left: 3px;
-	width: 127px;
-	border-right: none;
-}
-
-#header-f form input[type="text"]{
 	padding-left: 3px;
 	width: 127px;
 	border-right: none;
@@ -362,20 +331,7 @@ a.large-link:before {
 	cursor: pointer;
 }
 
-#header-f form input[type="submit"]{
-	height: 22px;
-	width: 22px;
-	border-left: none;
-	background: white url(/images/search-f.svg) center center no-repeat;
-	background-image: -webkit-linear-gradient(transparent, transparent), url(/images/search-f.svg);
-	background-image: -moz-linear-gradient(transparent, transparent), url(/images/search-f.svg);
-	background-image: linear-gradient(transparent, transparent), url(/images/search-f.svg);
-	cursor: pointer;
-}
-
 #header form p { margin: 0; }
-
-#header-f form p { margin: 0; }
 
 /* ================ NAVBAR ================== */
 
@@ -407,6 +363,7 @@ a.large-link:before {
 	position: relative;
 }
 
+
 /* ================ FOOTER ================== */
 
 #footer {
@@ -428,26 +385,6 @@ a.large-link:before {
 	padding-top: 10px;
 }
 
-/* === FOUNDATION FOOTER === */
-
-#footer-f {
-	clear: both;
-	padding: 100px 30px 20px 30px;
-	line-height: 23px;
-	color: #959595;
-}
-#footer-f a {
-	color: #959595;
-	border-bottom: 1px solid #CECECE;
-}
-#footer-f #copyright,
-#footer-f #colophon {
-
-} 
-#footer-f #copyright {
-	border-top: 1px solid #A6BCCF;
-	padding-top: 10px;
-}
 
 /* ================ TYPOGRAPHY ================== */
 
@@ -524,12 +461,11 @@ li {margin-bottom: 1em; }
 .large-header .black { color: #000; }
 .error { color: #f00; margin: 0; }
 
-/* ================ UI Elements ================== */
-
-
 
 /* ================== RANDOM CLASSES =============== */
+
 .clear { clear: both; }
+
 
 /* ================== PAGE SPECIFIC CSS =============== */
 
@@ -678,14 +614,7 @@ dl.network dt { font-style: normal; }
 dl.network dd { margin: 0; }
 dl.network dd.date { color: #999999; margin-bottom: 1em; }
 
-//p.network { margin: 0 23px 1em 0; width:200px; }
-//p.network span.date { color: #999999; }
-
 p.exhibition-nav { margin-top: 20px; margin-bottom: 10px; }
-
-/**************************************************************** Foundation ***/
-
-.foundation-p { line-height: 0em; } 
 
 
 
@@ -693,8 +622,6 @@ p.exhibition-nav { margin-top: 20px; margin-bottom: 10px; }
 
 
 #Language h5 a { float: left; margin-left: -30px; }
-
-
 
 .skinny {
         margin-left    : 0px;
@@ -711,7 +638,7 @@ p.exhibition-nav { margin-top: 20px; margin-bottom: 10px; }
 	margin-bottom: 20px;
 }
 
-.ref-notice { margin: 0 0 2.5em 0; color: #FF3399; clear: both; margin-right: 40px;}
+.ref-notice { margin: 0 0 2.5em 0; color: #666666; clear: both; margin-right: 40px;}
 
 .ref-item { margin-bottom: 60px; }
 .ref-item th { width: 100px; font-weight: bold; text-align: left; vertical-align: top; }
@@ -878,8 +805,6 @@ div.ref-col {
 
 
 /**************************************************************** download ***/
-
-/* download */
 
 #Download .download ul { list-style: none; margin: 0; padding: 0; }
 #Download span.version-date { color: #959595; }
@@ -1059,16 +984,13 @@ div.ref-col {
 
 /************************************************************** contribute ***/
 
-/*#Contribute h1 { margin-bottom: 0; }*/
 #Contribute .message { margin-top: 0; margin-right: 40px; }
 #Contribute .threecol { float: left; width: 210px; margin-right: 20px; }
 #Contribute .threecol p { margin-bottom: 2em; }
 
 
-
 /************************************************************** learning ***/
 
-/*#Learning  h1 { margin-bottom: 0; margin-top: 0;}*/
 #Learning .message { margin-top: 0; margin-right: 40px; }
 #Learning .threecol { float: left; width: 200px; margin-right: 30px; margin-top: 0px;}
 #Learning .threecol p { margin-bottom: 2em; }
@@ -1080,12 +1002,9 @@ div.ref-col {
 
 .doc-float { margin-right: 40px;}
 
-
-
 h2 { margin-bottom: 0; margin-top: 0;}
 
 .example-notice { margin: -1.0em 0 2.5em 0; color: #FF3399; clear: both; margin-right: 40px;}
-
 
 #Copyright p { margin-right: 20px; }
 
@@ -1096,37 +1015,6 @@ h2 { margin-bottom: 0; margin-top: 0;}
 #Tutorials .coltwo { width: 165px; float: left; margin-right: 25px; }
 #Tutorials .colthree { width: 224px; float: left; margin-right: 20px; }
 #Tutorials h2 { margin: 0 0 20px 0; font-size: 1em; }
-
-/*#Tutorials p { 	
-				margin-top: 2.0em;
-				margin-bottom: 2.0em;
-				font-size           : 1.0em;
-				font-weight			: normal;
-				line-height			: 2.0em; 
-			  }*/
-
-/*#Tutorials h3 { 
-	font-family			: Verdana, Geneva, Arial, Helvetica, sans-serif; 
-	font-size			: 1.3em;
-	font-weight			: bold;
-	margin-bottom		: 0.4em; 
-	margin-top			: 1.8em;
-}
-
-#Tutorials h5 { 
-	font-family			: Verdana, Geneva, Arial, Helvetica, sans-serif; 
-	font-weight			: bold;
-	font-size			: 1.0em;
-	margin-bottom		: 0.4em; 
-	margin-top			: 1.4em;
-}*/
-
-/*#Tutorials h1 { 
-	font-family			: Verdana, Geneva, Arial, Helvetica, sans-serif; 
-	font-size			: 2.0em; 
-	font-weight			: normal;
-	font-style			: normal;
-}*/
 
 /*--------------------TUTORIAL HEADER SPACING------------------*/
 .Tutorials { line-height: 0em; } 
@@ -1176,6 +1064,7 @@ h2 { margin-bottom: 0; margin-top: 0;}
 	background-color: #eee;
 }
 
+/*
 #Tutorials p.txt {
 	margin-top: 0em;
   	margin-bottom: 2em;
@@ -1183,10 +1072,10 @@ h2 { margin-bottom: 0; margin-top: 0;}
 	font-weight: normal;
 	line-height: 200%;
 }
+*/
 
 /************************************************************** Books ***/
 
-/*#Books h1 { margin-bottom: 0; margin-top: 0;}*/
 #Books td { vertical-align: top; font-size: 1.0em}
 
 
@@ -1210,9 +1099,6 @@ h2 { margin-bottom: 0; margin-top: 0;}
 	margin-top: 30px;
 }
 
-
-
-
 #Tools-index h5 { margin-bottom: 0; font-size: 1em; }
 #Tools-index .twocol p { margin-top: 0; }
 .lib-nav { display: block; 
@@ -1231,7 +1117,6 @@ h2 { margin-bottom: 0; margin-top: 0;}
 #Tools h4 { font-size: 1em; margin-bottom: .5em; }
 #Tools h4 a {float:left; margin-left:-30px; martin-top:-5px; }
 
-
 #Tools .threecol { 
 	float: left; 
 	width: 210px; 
@@ -1241,9 +1126,7 @@ h2 { margin-bottom: 0; margin-top: 0;}
 .threecol:nth-child(5) { margin: 0 !important; }
 
 
-
 /************************************************************** Library Indices ***/
-
 
 #Libraries .colone {
 	width: 300px;
@@ -1266,9 +1149,7 @@ h2 { margin-bottom: 0; margin-top: 0;}
 #Libraries .twocol-alt {
 	width: 330px;
 	float: left; 
-	//background: #cccccc;
 }
-
 
 #Libraries .twocol p { margin-top: 0; }
 
@@ -1294,8 +1175,6 @@ h2 { margin-bottom: 0; margin-top: 0;}
 	margin-bottom: 2px;
 }
 
-
-
 #Libraries .lib-nav { display: block; 
 	margin-bottom: 10px; 
 	margin-left: -30px; 
@@ -1306,7 +1185,6 @@ h2 { margin-bottom: 0; margin-top: 0;}
 #Libraries pre { margin-left: 30px; margin-bottom: 30px; }
 
 #Libraries h2 { margin-top: 2em; }
-/*#Libraries h3 { clear: both; margin-bottom: 0; }*/
 
 #Libraries h3 { margin-top: 0; margin-bottom: 0;}
 
@@ -1329,13 +1207,13 @@ h2 { margin-bottom: 0; margin-top: 0;}
 
 
 /************************************************************** environment ***/
-/*#Environment h1 { margin-top: 2em; }*/
-#Environment h5 { margin-top: 3em; }
+
+#Environment h5 { margin-top: 2em; margin-bottom: 1em; }
 #Environment h6 { margin-bottom: 0em; }
 #Environment h5 a { float: left; margin-left: -30px; }
 ul.nostyle { margin: 0; padding: 0; list-style: none outside; }
 #Environment td { padding-bottom: 1em; }
-#Environment .content p,
+/*#Environment .content p,*/
 #Environment .content ul,
 #Environment .content table {
 	width: 560px;
@@ -1343,31 +1221,22 @@ ul.nostyle { margin: 0; padding: 0; list-style: none outside; }
 
 
 /************************************************************** overview ***/
+
 #Overview .content p,
 #Overview .content ul,
-#Overview .content table {
-	width: 560px;
-}
+#Overview .content table { width: 560px; }
 
 #Foundation .content p,
 #Foundation .content ul,
-#Foundation .content table {
-	width: 560px;
-}
-
+#Foundation .content table { width: 560px; }
 
 #People .content p,
 #People .content ul,
-#People .content table {
-	width: 560px;
-}
+#People .content table { width: 560px; }
 
 #people-f .content p,
 #people-f .content ul,
-#people-f .content table {
-	width: 680px;
-}
-
+#people-f .content table { width: 680px; }
 
 
 /************************************************************** examples ***/
@@ -1377,15 +1246,11 @@ p.doc-float { margin-left: 250px; }
 p.doc { margin-right: 40px; margin-top: 30px;}
 pre.code { clear: both; margin-top: 10px; }
 
-/* #examples-nav { margin-left: -44px; display: relative; } */
 //#examples-nav { margin-left: 0px; display: relative; }
 
 .examples-nav-div { margin-left: -44px; margin-top: -10px; width: 480px; display: relative; align: left; }
 
 #examples-nav img { display: absolute; top: 15px; left: 100px; }
-
-/*#Examples h1 { margin-bottom: 0; }*/
-
 
 div.updateRequired {
 	color:#999;
@@ -1402,7 +1267,9 @@ ul.examples {
 	-webkit-column-count:3; /* Safari and Chrome */
 	column-count:3;
 }
+
 ul.examples li { margin: 0; padding: 0; }
+
 ul.examples ul {
 	list-style: none;
 	padding: 0;
@@ -1410,14 +1277,17 @@ ul.examples ul {
         margin-bottom: 17px;
         width: 100%;
 }
+
 ul.examples ul li {
 	margin: 0;
 }
+
 div.examples-nav {
 	margin-left: -41px;
 	margin-bottom: 17px;
 	position: relative;
 }
+
 div.examples-nav img { position: relative; top: 11px; }
 
   .donate-card-row { 
@@ -1430,6 +1300,7 @@ div.examples-nav img { position: relative; top: 11px; }
     margin-left: -10px;
     margin-right: -10px;
   }
+
   .donate-card {
     text-align: center;
     width: 30%;
@@ -1447,28 +1318,35 @@ div.examples-nav img { position: relative; top: 11px; }
     -ms-flex-pack: center;
     justify-content: center;
   }
+  
   .donate-card h4 {
     line-height: 1.3;
     margin: 0 0 0.5em 0;
     color: #2c7bb5;
   }
+  
   a.donate-card {
     color: #252525;
   }
+  
   a.donate-card:hover {
     border-color: #2c7bb5;
   }
+  
   .donate-list {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
   }
+  
   .donate-list li {
     margin-bottom: 0;
   }
+  
   .donate-list li:before {
     content: '» '
   }
+
   .donate-content hr {
     margin-top: 2em;
     margin-bottom: 2em;
@@ -1476,48 +1354,3 @@ div.examples-nav img { position: relative; top: 11px; }
     border: none;
     border-top: 1px solid #CBCBCB;
   }
-
-/**************************************************************** updates, courses, happenings ***/
-/*
-#Courses .content, #Updates .content, #Happenings .content {
-    width: 595px; 
-     }
-#Updates h2 { margin-top: 0 0 20px 0; }
-
-
-.course-desc p { margin: 0; }
-.course-desc p.date { margin: 0; }
-.course-desc h3 { margin: 0; font-size: 1em; font-weight: bold; line-height: 1em; }
-.course-desc { margin-bottom: 2em; }
-*/
-
-/************************************************************** comparison ***/
-/*
-
-#Compare h1 { margin-top: 2em; }
-#Compare h2 { margin-bottom: 0; }
-#Compare .threecol { float: left; width: 210px; margin-right: 20px; }
-#Compare .threecol p { margin-top: 0; }
-
-
-#Compare .content {
-        margin-left    : 55px;
-        margin-right   : 0px;
-        position: relative;
-}
-*/
-
-/************************************************************** troubleshooting ***/
-/*
-#Troubleshooting h1 { margin-top: 2em; }
-#Troubleshooting h5 a { float: left; margin-left: -30px; }
-ul.nostyle { margin: 0; padding: 0; list-style: none outside; }
-#Troubleshooting td { padding-bottom: 1em; }
-*/
-
-/************************************************************** FAQ ***/
-
-/*
-#FAQ h5 a { float: left; margin-left: -30px; }
-*/
-

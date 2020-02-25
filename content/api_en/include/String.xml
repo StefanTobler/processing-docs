@@ -24,12 +24,9 @@ println(str2);  // Prints "CCCP" to the console
 <code><![CDATA[
 // Comparing String objects, see reference below.
 String p = "potato";
-if (p == "potato") {
-  println("p == potato, yep.");  // This will not print
-} 
 // The correct way to compare two Strings
 if (p.equals("potato")) {
-  println("Yes, the contents of p and potato are the same.");
+  println("Yes, the values are the same.");
 }
 ]]></code>
 </example>
@@ -50,7 +47,7 @@ To compare the contents of two Strings, use the <b>equals()</b> method, as in <b
 <br />
 Because a String is defined between double quotation marks, to include such marks within the String itself you must use the <b>&#92;</b> (backslash) character.  (See the third example above.)  This is known as an <em>escape sequence</em>. Other escape sequences include <b>&#92;t</b> for the tab character and <b>&#92;n</b> for new line. Because backslash is the escape character, to include a single backslash within a String, you must use two consecutive backslashes, as in: <b>&#92;&#92;</b><br />
 <br />
-There are more string methods than those linked from this page. Additional documentation is located online in the <a href="http://download.oracle.com/javase/6/docs/api/java/lang/String.html">official Java documentation</a>.
+There are more string methods than those linked from this page. Additional documentation is located online in the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">official Java documentation</a>.
 ]]></description>
 
 <syntax></syntax>
@@ -110,7 +107,6 @@ String(<c>data</c>, <c>offset</c>, <c>length</c>)
 <cdescription>int: number of characters</cdescription>
 </cparameter>
 
-
 <returns></returns>
 
 <related>
@@ -123,7 +119,5 @@ text()
 <type>Object</type>
 
 <partof>PDE</partof>
-
-
 
 </root>
